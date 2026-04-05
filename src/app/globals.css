@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-background: #070708;
+  --color-surface: #0e0e11;
+  --color-surface-elevated: #16161a;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-muted: #8b8b96;
+  --color-foreground: #f4f4f5;
+  --color-accent: #2dd4bf;
+  --color-accent-secondary: #a78bfa;
+  --color-accent-soft: rgba(45, 212, 191, 0.12);
+  --color-accent-glow: rgba(45, 212, 191, 0.28);
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+
+  /* Subtle per-tool accents (borders, chips, glows) */
+  --color-cat-macros: #22d3ee;
+  --color-cat-hydration: #38bdf8;
+  --color-cat-journal: #4ade80;
+  --color-cat-strength: #f97316;
+  --color-cat-program: #c084fc;
+  --color-cat-composition: #fbbf24;
+  --color-cat-settings: #94a3b8;
+  --color-cat-community: #818cf8;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 18px 50px -24px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 80px -20px rgba(45, 212, 191, 0.35);
+  --radius-card: 1.25rem;
+  --radius-btn: 9999px;
+  --bottom-nav-h: 4.25rem;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen font-sans;
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -25%, var(--color-accent-glow), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 100% 0%, rgba(167, 139, 250, 0.12), transparent),
+      radial-gradient(ellipse 40% 30% at 0% 20%, rgba(45, 212, 191, 0.06), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-teal-500/25 text-foreground;
+  }
+}
+
+@utility glass-panel {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-border);
+  background-color: color-mix(in oklab, var(--color-surface) 82%, transparent);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-card);
+}
+
+@utility glass-panel-strong {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-border-strong);
+  background-color: color-mix(in oklab, var(--color-surface-elevated) 88%, transparent);
+  backdrop-filter: blur(28px);
+  box-shadow: var(--shadow-card);
+}
+
+@utility focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px color-mix(in oklab, var(--color-accent) 55%, transparent);
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-panel-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+@utility animate-nav-panel-in {
+  animation: nav-panel-in 0.22s ease-out both;
+}
+
+@keyframes body-insight-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@utility animate-body-insight-reveal {
+  animation: body-insight-reveal 0.65s ease-out both;
+}
