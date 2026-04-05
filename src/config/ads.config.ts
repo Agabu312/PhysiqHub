@@ -4,7 +4,9 @@
  *
  * accentKey maps to theme colors in globals.css (cat-* tokens).
  */
+
 export type AdAccentKey = "macros" | "water" | "neutral";
+export type AdMediaType = "none" | "image" | "video";
 
 export type AdCreative = {
   id: string;
@@ -12,19 +14,21 @@ export type AdCreative = {
   headline: string;
   body: string;
   ctaLabel: string;
-  /** Use https:// for external links */
+  /** Use https:// for external links or mailto: for email CTAs */
   href: string;
   accentKey: AdAccentKey;
+
+  /**
+   * Media support:
+   * - none  -> text only
+   * - image -> render mediaSrc as image
+   * - video -> render mediaSrc as video
+   */
+  mediaType?: AdMediaType;
+  mediaSrc?: string;
+  mediaAlt?: string;
 };
 
-/**
- * CURRENT STRATEGY:
- * - Use one visible placement as a tasteful partner inquiry card
- * - Hide the other placements until real sponsors exist
- * - Later, swap the creative fields below with real partner copy/links
- */
-
-/** Dashboard placement */
 export const dashboardAd: { enabled: boolean; creative: AdCreative } = {
   enabled: true,
   creative: {
@@ -35,10 +39,10 @@ export const dashboardAd: { enabled: boolean; creative: AdCreative } = {
     ctaLabel: "Contact us",
     href: "mailto:PhysiqHub@physiqhub.info?subject=Partnership%20Inquiry%20-%20PhysiqHub",
     accentKey: "neutral",
+    mediaType: "none",
   },
 };
 
-/** Profile placement — hidden until needed */
 export const profileAd: { enabled: boolean; creative: AdCreative } = {
   enabled: false,
   creative: {
@@ -49,10 +53,10 @@ export const profileAd: { enabled: boolean; creative: AdCreative } = {
     ctaLabel: "Learn more",
     href: "https://example.com",
     accentKey: "water",
+    mediaType: "none",
   },
 };
 
-/** Tool pages placement — hidden until needed */
 export const toolInlineAd: { enabled: boolean; creative: AdCreative } = {
   enabled: false,
   creative: {
@@ -63,5 +67,6 @@ export const toolInlineAd: { enabled: boolean; creative: AdCreative } = {
     ctaLabel: "Learn more",
     href: "https://example.com",
     accentKey: "macros",
+    mediaType: "none",
   },
 };
