@@ -28,6 +28,7 @@ export function AdSlot({
 }) {
   const hasImage = creative.mediaType === "image" && creative.mediaSrc;
   const hasVideo = creative.mediaType === "video" && creative.mediaSrc;
+  const isContactCard = creative.href.startsWith("mailto:");
 
   return (
     <aside
@@ -67,14 +68,28 @@ export function AdSlot({
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link
-              href={creative.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center justify-center rounded-full border border-border-strong bg-background/45 px-5 text-sm font-semibold text-foreground transition hover:bg-background/65"
-            >
-              {creative.ctaLabel}
-            </Link>
+            {isContactCard ? (
+              <div className="rounded-2xl border border-border-strong bg-background/35 px-4 py-3">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+                  Contact for advertising
+                </p>
+                <a
+                  href={creative.href}
+                  className="mt-1 block text-sm font-medium text-foreground underline decoration-white/20 underline-offset-4 transition hover:text-accent"
+                >
+                  PhysiqHub@physiqhub.info
+                </a>
+              </div>
+            ) : (
+              <Link
+                href={creative.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center justify-center rounded-full border border-border-strong bg-background/45 px-5 text-sm font-semibold text-foreground transition hover:bg-background/65"
+              >
+                {creative.ctaLabel}
+              </Link>
+            )}
 
             <span className="text-xs text-muted/80">Paid placement</span>
           </div>
