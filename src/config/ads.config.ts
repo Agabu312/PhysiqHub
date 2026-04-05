@@ -17,44 +17,51 @@ export type AdCreative = {
   accentKey: AdAccentKey;
 };
 
-/** Dashboard hero-ad (optional; set enabled: false to hide) */
+/**
+ * CURRENT STRATEGY:
+ * - Use one visible placement as an "advertise with us" card
+ * - Hide the other placements until real sponsors exist
+ * - Later, swap the creative fields below with real partner copy/links
+ */
+
+/** Dashboard placement */
 export const dashboardAd: { enabled: boolean; creative: AdCreative } = {
   enabled: true,
   creative: {
-    id: "dash-primary",
-    brandName: "Recovery Labs",
-    headline: "Sleep is the first performance supplement",
-    body: "Placeholder sponsorship slot. Swap copy and URL in src/config/ads.config.ts when you have a partner.",
-    ctaLabel: "Learn more",
-    href: "https://example.com",
+    id: "dash-advertise-with-us",
+    brandName: "PhysiqHub",
+    headline: "Advertising opportunities available",
+    body: "For sponsorship and advertising inquiries, contact PhysiqHub@physiqhub.info. This placement can later be replaced with a live partner campaign.",
+    ctaLabel: "Email us",
+    href: "mailto:PhysiqHub@physiqhub.info?subject=Advertising%20Inquiry%20-%20PhysiqHub",
     accentKey: "neutral",
   },
 };
 
-/** Compact placement on Profile (below body insights); disabled by default */
+/** Profile placement — hidden until needed */
 export const profileAd: { enabled: boolean; creative: AdCreative } = {
   enabled: false,
   creative: {
     id: "profile-inline",
-    brandName: "PhysiquHub Partners",
-    headline: "Train with clarity",
-    body: "Optional partner slot on Profile. Enable in ads.config.ts when you have a fit.",
-    ctaLabel: "Details",
-    href: "https://example.com/partners",
+    brandName: "Future Partner",
+    headline: "Reserved profile placement",
+    body: "This optional slot can be enabled later for a sponsor that fits the product naturally.",
+    ctaLabel: "Learn more",
+    href: "https://example.com",
     accentKey: "water",
   },
 };
 
-/** Shown below primary results on tool pages when enabled */
+/** Tool pages placement — hidden until needed */
 export const toolInlineAd: { enabled: boolean; creative: AdCreative } = {
-  enabled: true,
+  enabled: false,
   creative: {
     id: "tool-inline",
-    brandName: "PhysiquHub Partners",
-    headline: "Fuel training decisions, not distractions",
-    body: "Second placement for future sponsors. Keeps the same glass styling as the rest of the app.",
-    ctaLabel: "Partner info",
-    href: "https://example.com/partners",
+    brandName: "Future Partner",
+    headline: "Reserved tool-page placement",
+    body: "Enable this later when you have a real advertising partner and campaign URL.",
+    ctaLabel: "Learn more",
+    href: "https://example.com",
     accentKey: "macros",
   },
 };
