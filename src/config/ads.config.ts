@@ -19,7 +19,7 @@ export type AdCreative = {
 
 /**
  * CURRENT STRATEGY:
- * - Use one visible placement as an "advertise with us" card
+ * - Use one visible placement as a tasteful partner inquiry card
  * - Hide the other placements until real sponsors exist
  * - Later, swap the creative fields below with real partner copy/links
  */
@@ -28,12 +28,12 @@ export type AdCreative = {
 export const dashboardAd: { enabled: boolean; creative: AdCreative } = {
   enabled: true,
   creative: {
-    id: "dash-advertise-with-us",
+    id: "dash-partner-inquiry",
     brandName: "PhysiqHub",
-    headline: "Advertising opportunities available",
-    body: "For sponsorship and advertising inquiries, contact PhysiqHub@physiqhub.info. This placement can later be replaced with a live partner campaign.",
-    ctaLabel: "Email us",
-    href: "mailto:PhysiqHub@physiqhub.info?subject=Advertising%20Inquiry%20-%20PhysiqHub",
+    headline: "Partner with PhysiqHub",
+    body: "Selective sponsor placements are available for brands that genuinely fit the product. For partnership or advertising inquiries, contact PhysiqHub@physiqhub.info.",
+    ctaLabel: "Contact us",
+    href: "mailto:PhysiqHub@physiqhub.info?subject=Partnership%20Inquiry%20-%20PhysiqHub",
     accentKey: "neutral",
   },
 };
