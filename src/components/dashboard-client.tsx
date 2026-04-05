@@ -7,7 +7,6 @@ import {
   BookOpen,
   Dumbbell,
   Droplets,
-  Dumbbell as CoachIcon,
   Gauge,
   LineChart,
   MessageSquareHeart,
@@ -529,24 +528,13 @@ export function DashboardClient() {
         </Card>
       </section>
 
-      <section className="space-y-5">
-        <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">Sponsored</p>
-          <h2 className="mt-1 text-lg font-semibold text-foreground">Partner placement</h2>
-          <p className="mt-1 max-w-xl text-sm text-muted">
-            Kept subtle—toggle in config when you have a partner to show.
-          </p>
-        </div>
-        {dashboardAd.enabled ? (
-          <div className="max-w-3xl animate-fade-up">
-            <AdSlot creative={dashboardAd.creative} />
+      {dashboardAd.enabled ? (
+        <section className="pt-2">
+          <div className="animate-fade-up">
+            <AdSlot creative={dashboardAd.creative} className="max-w-4xl" />
           </div>
-        ) : (
-          <Card className="border-dashed border-border-strong p-8 text-center">
-            <p className="text-sm text-muted">No active sponsor slot. When enabled, it appears here.</p>
-          </Card>
-        )}
-      </section>
+        </section>
+      ) : null}
     </div>
   );
 }

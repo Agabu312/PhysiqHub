@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { MessageSquareHeart, Send, Sparkles, User2 } from "lucide-react";
 import { ToolPageHeader } from "@/components/tool/tool-accent";
 import { Card } from "@/components/ui/card";
+import { AdSlot } from "@/components/ad-slot";
+import { coachAd } from "@/config/ads.config";
 import { cn } from "@/lib/cn";
 import { adaptiveSuggestion, readinessFromJournal, weeklyWeightDeltaKg } from "@/lib/insights";
 import { loadJournalEntries, sortEntriesByDateDesc } from "@/lib/journal-storage";
@@ -424,6 +426,12 @@ export function CoachClient() {
           </div>
         </Card>
       </div>
+
+      {coachAd.enabled ? (
+        <div className="pt-2">
+          <AdSlot creative={coachAd.creative} className="max-w-3xl" />
+        </div>
+      ) : null}
     </div>
   );
 }

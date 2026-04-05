@@ -17,13 +17,6 @@ export type AdCreative = {
   /** Use https:// for external links or mailto: for email CTAs */
   href: string;
   accentKey: AdAccentKey;
-
-  /**
-   * Media support:
-   * - none  -> text only
-   * - image -> render mediaSrc as image
-   * - video -> render mediaSrc as video
-   */
   mediaType?: AdMediaType;
   mediaSrc?: string;
   mediaAlt?: string;
@@ -47,26 +40,40 @@ export const profileAd: { enabled: boolean; creative: AdCreative } = {
   enabled: false,
   creative: {
     id: "profile-inline",
-    brandName: "Future Partner",
-    headline: "Reserved profile placement",
-    body: "This optional slot can be enabled later for a sponsor that fits the product naturally.",
-    ctaLabel: "Learn more",
-    href: "https://example.com",
+    brandName: "PhysiqHub",
+    headline: "Profile sponsor slot",
+    body: "Reserved for future sponsor placements that fit the product naturally.",
+    ctaLabel: "Contact us",
+    href: "mailto:PhysiqHub@physiqhub.info?subject=Partnership%20Inquiry%20-%20PhysiqHub",
     accentKey: "water",
     mediaType: "none",
   },
 };
 
 export const toolInlineAd: { enabled: boolean; creative: AdCreative } = {
-  enabled: false,
+  enabled: true,
   creative: {
     id: "tool-inline",
-    brandName: "Future Partner",
-    headline: "Reserved tool-page placement",
-    body: "Enable this later when you have a real advertising partner and campaign URL.",
-    ctaLabel: "Learn more",
-    href: "https://example.com",
+    brandName: "PhysiqHub",
+    headline: "Advertise with PhysiqHub",
+    body: "Relevant sponsor placements are available across tools and dashboard surfaces. Reach out for partnership details.",
+    ctaLabel: "Get in touch",
+    href: "mailto:PhysiqHub@physiqhub.info?subject=Advertising%20Inquiry%20-%20PhysiqHub",
     accentKey: "macros",
+    mediaType: "none",
+  },
+};
+
+export const coachAd: { enabled: boolean; creative: AdCreative } = {
+  enabled: true,
+  creative: {
+    id: "coach-inline",
+    brandName: "PhysiqHub",
+    headline: "Interested in a sponsor placement?",
+    body: "Coach, dashboard, and tool placements are available for brands that genuinely fit the audience.",
+    ctaLabel: "Partner with us",
+    href: "mailto:PhysiqHub@physiqhub.info?subject=Partnership%20Inquiry%20-%20PhysiqHub",
+    accentKey: "neutral",
     mediaType: "none",
   },
 };

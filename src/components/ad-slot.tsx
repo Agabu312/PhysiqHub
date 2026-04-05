@@ -76,9 +76,7 @@ export function AdSlot({
               {creative.ctaLabel}
             </Link>
 
-            <span className="text-xs text-muted/80">
-              Paid placement
-            </span>
+            <span className="text-xs text-muted/80">Paid placement</span>
           </div>
         </div>
 
